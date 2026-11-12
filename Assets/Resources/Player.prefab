@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraControls
   playerBody: {fileID: 2597377728997284009}
+  playerCamera: {fileID: 0}
   sensitivity: 0.1
   minPitch: -85
   maxPitch: 85
@@ -191,8 +192,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 773182463426337512}
   - {fileID: 7687285362425798063}
+  - {fileID: 773182463426337512}
   m_Father: {fileID: 8570344981371173170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4912692300729095871
@@ -291,6 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2597377728997284009}
   - component: {fileID: 4896766203018027940}
+  - component: {fileID: 4216463869967638677}
   - component: {fileID: 2782983716344693019}
   - component: {fileID: 1227797022257846628}
   - component: {fileID: 7186334461862546975}
@@ -347,6 +349,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4216463869967638677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6222918536708905658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6b6edb052431849b2fe93902dbd0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonBody
+  cameraRot: {fileID: 9197050125336493730}
+  cameraControls: {fileID: 2488651699267140363}
+  footIK: {fileID: 4311750313373781595}
+  standEyeHeight: 1.65
+  crouchEyeHeight: 0.95
+  eyeHeightSpeed: 10
+  spineWeightNeutral: 0.6
+  spineWeightExtreme: 1
+  maxPitchRef: 85
 --- !u!114 &2782983716344693019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +437,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 0}
   fadeDuration: 0.25
   slotSize: 18
+  item3DViewer: {fileID: 0}
 --- !u!114 &7586401638826618072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   audioSource: {fileID: 127873775872616861}
+  actionSource: {fileID: 0}
   footsteps:
   - {fileID: 8300000, guid: 1472e4cceaff39240946223b30479d4a, type: 3}
   - {fileID: 8300000, guid: 06b95918755b46046a5703ac8517c95c, type: 3}
@@ -476,6 +501,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a7bd611b97164734fa1278a1fb3c2b9c, type: 3}
   - {fileID: 8300000, guid: a5f7fbfca19c8354e87539478a29b795, type: 3}
   - {fileID: 8300000, guid: 0fb08cca1230aed48b004ba0f92452a3, type: 3}
+  jumpClips: []
+  landClips: []
   stepInterval: 0.6
   walkMultiplier: 0.65
   sprintMultiplier: 0.45
@@ -485,6 +512,10 @@ MonoBehaviour:
   leftPitch: 0.97
   rightPitch: 1.03
   pitchVariation: 0.08
+  jumpVolume: 0.8
+  minLandSpeed: 3
+  hardLandSpeed: 10
+  softLandVolume: 0.4
 --- !u!1 &6757499420041795953
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7145639588906717100}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000014901152, y: -5.0242937e-15, z: 5.8233475e-22, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -670,7 +701,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60
+    FieldOfView: 80
     OrthographicSize: 10
     NearClipPlane: 0.14
     FarClipPlane: 5000
@@ -1068,11 +1099,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -5915827256122542884, guid: 75333ed383bb6a349b961494c270fa35, type: 3}
   m_PrefabInstance: {fileID: 3794078209059322900}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2111388335449498066 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6203024013462528570, guid: 75333ed383bb6a349b961494c270fa35, type: 3}
-  m_PrefabInstance: {fileID: 3794078209059322900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2187127381581688822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6125604938124684318, guid: 75333ed383bb6a349b961494c270fa35, type: 3}
@@ -1328,13 +1354,13 @@ MonoBehaviour:
   - {fileID: 3051047060519890658}
   - {fileID: 7833739142502384596}
   - {fileID: 1116071226605882453}
-  - {fileID: 7222304369607092940}
+  - {fileID: 0}
   - {fileID: 6573251695204588456}
   - {fileID: 127495895116813391}
   - {fileID: 1196110421282467760}
   - {fileID: 1381102760887348133}
   - {fileID: 3156923630855782471}
-  - {fileID: 2111388335449498066}
+  - {fileID: 0}
   - {fileID: 3082796444815826480}
   - {fileID: 6539855853722835614}
   - {fileID: 4999794337490919415}
@@ -1432,11 +1458,6 @@ Transform:
 --- !u!4 &7153415134869536053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6332429607123992865, guid: 75333ed383bb6a349b961494c270fa35, type: 3}
-  m_PrefabInstance: {fileID: 3794078209059322900}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7222304369607092940 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5808941517492541144, guid: 75333ed383bb6a349b961494c270fa35, type: 3}
   m_PrefabInstance: {fileID: 3794078209059322900}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7229042843538084370 stripped

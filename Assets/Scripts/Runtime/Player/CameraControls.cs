@@ -40,9 +40,11 @@ public class CameraControls : MonoBehaviour
 
     private void Awake()
     {
-        // Auto-find the camera on the child CM if not assigned
+        // Auto-find camera (CM is a CinemachineCamera, so Camera component is on Main Camera)
         if (playerCamera == null)
             playerCamera = GetComponentInChildren<Camera>();
+        if (playerCamera == null)
+            playerCamera = Camera.main;
     }
 
     private void Start()

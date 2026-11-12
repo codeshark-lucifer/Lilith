@@ -274,7 +274,6 @@ namespace RealStep
             currentTilt = Quaternion.identity;
             left.Reset();
             right.Reset();
-            ReleaseGoals();
         }
 
         public void DisableSmooth()
