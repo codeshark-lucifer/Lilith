@@ -7,7 +7,8 @@ public enum GameState
     Paused,
     Inventory,
     Dialogue,
-    ItemPreview
+    ItemPreview,
+    Cutscene
 }
 public class GameManager : Singleton<GameManager>
 {
@@ -28,6 +29,7 @@ public class GameManager : Singleton<GameManager>
         switch (state)
         {
             case GameState.Playing:
+            case GameState.Cutscene:
                 SetCursorLocked(true);
                 break;
             case GameState.Paused:
