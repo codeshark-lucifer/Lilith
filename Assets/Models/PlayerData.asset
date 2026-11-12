@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6ec920ec912614aa1bcdb5415fe1fc, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDataSO
+  walkSpeed: 3.4
+  runSpeed: 8
+  crouchSpeed: 1.3
+  acceleration: 50
+  deceleration: 60
+  moveDeadzone: 0.1
+  jumpHeight: 2
+  gravity: -20
+  crouchToggle: 0
+  standHeight: 1.8
+  crouchHeight: 1
+  crouchTransitionSpeed: 10
+  ceilingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295

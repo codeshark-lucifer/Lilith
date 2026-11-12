@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ff463c8053527e34a97a4f2d021fa1b7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 322927
+  packageName: "RealStep \u2013 Dynamic Foot Placement"
+  packageVersion: 1.1
+  assetPath: Assets/RealStep-Dynamic_Foot_Placement/Runtime/FootIK.cs
+  uploadId: 882830

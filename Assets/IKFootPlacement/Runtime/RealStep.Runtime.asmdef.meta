@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 10834854c53d29641b3b318a162f0b0a
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 322927
+  packageName: "RealStep \u2013 Dynamic Foot Placement"
+  packageVersion: 1.1
+  assetPath: Assets/RealStep-Dynamic_Foot_Placement/Runtime/RealStep.Runtime.asmdef
+  uploadId: 882830

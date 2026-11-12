@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5c16e266d264415479ab997019f02007
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 322927
+  packageName: "RealStep \u2013 Dynamic Foot Placement"
+  packageVersion: 1.1
+  assetPath: Assets/RealStep-Dynamic_Foot_Placement/Editor/RealStep.Editor.asmdef
+  uploadId: 882830

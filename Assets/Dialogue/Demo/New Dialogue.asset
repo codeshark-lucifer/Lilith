@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a36cca749f4f974f98e97db86d1be07, type: 3}
+  m_Name: New Dialogue
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGraphSO
+  nodes:
+  - rid: 6524312307566903499
+  - rid: 6524312307566903498
+  - rid: 6524312307566903509
+  - rid: 6524312307566903510
+  - rid: 6524312384846430461
+  - rid: 6524312307566903500
+  references:
+    version: 2
+    RefIds:
+    - rid: 6524312307566903498
+      type: {class: DialogueStart, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 8a0fb7f4-5b8b-4116-a0da-aa4cf81edc8f
+        position: {x: 80, y: 160}
+        priority: 0
+        conditions: []
+        nextGuid: f348115d-0181-4c15-ae8b-f2e41f8cc254
+    - rid: 6524312307566903499
+      type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
+      data:
+        guid: f348115d-0181-4c15-ae8b-f2e41f8cc254
+        position: {x: 477.6, y: 160}
+        speaker: Bob
+        text: What ?
+        effects: []
+        nextGuid: 24f71a33-3281-4bac-b5af-78b7d276dbdc
+    - rid: 6524312307566903500
+      type: {class: DialogueEnd, ns: , asm: Assembly-CSharp}
+      data:
+        guid: f371cb0b-1b25-4818-affa-a0da22d926b3
+        position: {x: 1660.8, y: -21.599998}
+        eventId: test_event
+        effects:
+        - key: relationship
+          kind: 1
+          flagValue: 1
+          numberValue: 1
+    - rid: 6524312307566903509
+      type: {class: DialogueChoice, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 24f71a33-3281-4bac-b5af-78b7d276dbdc
+        position: {x: 850.4, y: 160}
+        options:
+        - text: Hello
+          conditions: []
+          hideWhenUnavailable: 1
+          effects: []
+          nextGuid: 694a4211-73ba-4afc-b133-cad29d9c4e58
+        - text: ...
+          conditions: []
+          hideWhenUnavailable: 1
+          effects: []
+          nextGuid: e0374e02-5d47-463d-9ac6-5f843bf9fe62
+    - rid: 6524312307566903510
+      type: {class: DialogueLine, ns: , asm: Assembly-CSharp}
+      data:
+        guid: 694a4211-73ba-4afc-b133-cad29d9c4e58
+        position: {x: 1210.4, y: -22.4}
+        speaker: Bob
+        text: what up!
+        effects: []
+        nextGuid: f371cb0b-1b25-4818-affa-a0da22d926b3
+    - rid: 6524312384846430461
+      type: {class: DialogueEnd, ns: , asm: Assembly-CSharp}
+      data:
+        guid: e0374e02-5d47-463d-9ac6-5f843bf9fe62
+        position: {x: 1666.4, y: 182.4}
+        eventId: 
+        effects: []
